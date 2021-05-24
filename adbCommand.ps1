@@ -101,15 +101,15 @@ adb shell "find / -name 'libIAL*' -print 2>/dev/null"
 adb logcat -s com.bbpos
 
 #Pull APK from device
-# 1.	Get package list:	adb shell pm list packages [filter]
-# 2.	Get package path:	adb shell pm path com.example.someapp <package-name>
-# 3.	Pull package apk:	adb <pull path_to_apk> <path-on-computer-to-store-APK>
+1.	Get package list:	adb shell pm list packages [filter]
+2.	Get package path:	adb shell pm path com.example.someapp <package-name>
+3.	Pull package apk:	adb <pull path_to_apk> <path-on-computer-to-store-APK>
 
 #Push file to sdcard
 adb push local_file /sdcard/.
 
 #Restart adb server
-# adb kill-server & adb start-server
+adb kill-server & adb start-server
 
 #Screenshot
 adb exec-out screencap -p > screenshot.png
@@ -135,12 +135,12 @@ adb shell wm size
 
 # Screen Record
 abd shell
-# screenrecord --size 1080x1920 /sdcard/demo.mp4
-# adb shell screenrecord <folder-path/filename.mp4>
-# -time-limit <number-of-seconds> # add time limatation
+screenrecord --size 1080x1920 /sdcard/demo.mp4
+adb shell screenrecord <folder-path/filename.mp4>
+-time-limit <number-of-seconds> # add time limatation
 
-# #install multiple apps from a folder
-# for %f in (<folder-path>\*.apk) do adb install "%f"
+#install multiple apps from a folder
+for %f in (<folder-path>\*.apk) do adb install "%f"
 
 # adb shell
 # When you do, you can type many of the regular Linux shell commands. Here are a few of them:
@@ -159,9 +159,9 @@ rm: Delete a file.
 
 mkdir: Make a new directory.
 
-# am: Perform activity manager tasks (e.g., start an activity, start a service, stop a process, or broadcast something).
+am: Perform activity manager tasks (e.g., start an activity, start a service, stop a process, or broadcast something).
 
-# pm: Perform package manager tasks (e.g., list installed packages or uninstall an app).
+pm: Perform package manager tasks (e.g., list installed packages or uninstall an app).
 
 # Home button
 adb shell am start -W -c android.intent.category.HOME -a android.intent.action.MAIN
@@ -188,16 +188,16 @@ adb shell rm -r sdcard/logcatlog
 adb backup -all -f /backup/location/file.ab
 
 # adb restore
-# adb restore <backup-file-location>
+adb restore <backup-file-location>
 
 # backup Specific App and Its Data
-# 1. adb shell pm list packages
-# 2. adb backup -f <file-location-for-backup> -apk <package-name>
-# 3. adb restore <backup-file-location>
+1. adb shell pm list packages
+2. adb backup -f <file-location-for-backup> -apk <package-name>
+3. adb restore <backup-file-location>
 
 #Change DPI of the Screen
 adb shell wm density
-# adb shell wm density <value>
+adb shell wm density <value>
 
 # Get System Stats and Info
 adb shell dumpsys | grep "DUMP OF SERVICE"
