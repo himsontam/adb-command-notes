@@ -83,6 +83,9 @@ adb shell logcat | grep ""
 adb -s DEVICENAME tcpip 5555
 adb connect 192.168.9.10:5555
 
+#Check IP Address after the "inet" until the "/". OR Check IP Address in phone (IP address in Settings → About → Status.)
+adb shell ip addr show wlan0
+
 #get package name
 adb shell pm list packages
 com.android.keychain
